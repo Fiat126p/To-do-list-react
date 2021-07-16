@@ -1,0 +1,23 @@
+.buttons__button {
+    background-color: white;
+    color: hsl(180, 100%, 19%);
+    border: none;
+    transition: color 1s;
+    cursor: pointer;
+}
+
+.buttons__button:hover {
+    color: hsl(180, 100%, 30%);
+}
+
+.buttons__button:disabled {
+    color: #ccc;
+}
+
+@media (max-width: 767px) {
+    .section__buttons {
+        display: grid;
+        justify-content: center;
+        grid-template-columns: 1fr
+    }
+}
