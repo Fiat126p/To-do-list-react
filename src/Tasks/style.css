@@ -1,4 +1,4 @@
-.list__item {
+.tasks__item {
     display: grid;
     grid-template-columns: auto 1fr auto;
     grid-gap: 20px;
@@ -8,7 +8,7 @@
     margin: auto 20px auto -30px;
 }
 
-.list__button {
+.tasks__button {
     border: none;
     color: white;
     width: 25px;
@@ -18,16 +18,16 @@
     transition: background 1s, transform 2s;
 }
 
-.list__button:hover {
+.tasks__button:hover {
     background-color: rgb(35, 68, 2);
     transform:scale(1.5);
 }
 
-.list__button:active {
+.tasks__button:active {
     background-color: rgb(81, 156, 6);
 }
 
-.list__buttonRemove {
+.tasks__buttonRemove {
     border: none;
     color: white;
     width: 25px;
@@ -37,19 +37,19 @@
     transition: background 1s, transform 2s;
 }
 
-.list__buttonRemove:hover {
+.tasks__buttonRemove:hover {
     background-color: rgb(158, 1, 33);
     transform:scale(1.5);
 }
 
-.list__buttonRemove:active {
+.tasks__buttonRemove:active {
     background-color: rgb(255, 0, 51);
 }
 
-.list__task--done {
+.tasksContent--done {
     text-decoration: line-through;
 }
 
-.list__item--hidden {
+.tasks__item--hidden {
     display: none;
 }
