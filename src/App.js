@@ -24,34 +24,50 @@ function App() {
 
     const toggleTaskDone = (id) => {
         setTasks(task => tasks.map(task => {
-          if(task.id === id) {
-              return { ...task, done: !task.done};
-          } 
-          return task;
+            if (task.id === id) {
+                return { ...task, done: !task.done };
+            }
+            return task;
         }));
     }
-const setAllDone = () => {
-    setTasks(tasks => tasks.map(task => ({...task, done: true})));
-};
+    const setAllDone = () => {
+        setTasks(tasks => tasks.map(task => ({ ...task, done: true })));
+    };
+
+
+    const addNewTask = (content) => {
+        setTasks(tasks => [
+            ...tasks,
+            {
+                content,
+                done: false,
+                id: tasks.length === 0 ? 1 : tasks[tasks.length - 1].id + 1,
+            },
+        ]);
+    };
 
     return (
         <Container>
             <Header title="Lista zadań" />
 
-            <Section title="Dodaj nowe zadanie" body={<Form />} />
+            <Section title="Dodaj nowe zadanie"
+                body={<Form
+                    addNewTask={addNewTask}
+                />}
+            />
             <Section
                 title="Lista zadań"
-                body={<Tasks tasks={tasks} 
-                hideDone={hideDone} 
-                removeTask= {removeTask}
-                toggleTaskDone= {toggleTaskDone}
+                body={<Tasks tasks={tasks}
+                    hideDone={hideDone}
+                    removeTask={removeTask}
+                    toggleTaskDone={toggleTaskDone}
                 />}
                 extraHeaderContetn={
                     <Buttons tasks={tasks}
-                        hideDone={hideDone} 
-                        toggleHideDone={toggleHideDone} 
-                        setAllDone= {setAllDone}
-                        />} />
+                        hideDone={hideDone}
+                        toggleHideDone={toggleHideDone}
+                        setAllDone={setAllDone}
+                    />} />
         </Container>
     );
 }
